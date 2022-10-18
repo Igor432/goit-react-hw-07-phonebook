@@ -2,6 +2,7 @@ import ContactElement from './ContactElements';
 import style from '../phonebook/phonebook.module.css';
 import { useSelector } from 'react-redux';
 import { getFilter, getContacts } from '../redux/selectors';
+import { useEffect } from 'react';
 
 const ContactList = () => {
   const contactsState = useSelector(getContacts);
@@ -9,6 +10,7 @@ const ContactList = () => {
 
   console.log('Filter: ' + filter);
   console.log(contactsState);
+
 
   const filtered = () => {
     return contactsState.items.filter(contact =>
@@ -20,7 +22,7 @@ const ContactList = () => {
     <div className={style.contacts}>
       <ul className={style.contacts_list}>
         {filtered().map(contact => (
-          <ContactElement contact={contact} key={contact.id} id={contact.id} />
+          <ContactElement contact={contact} key={contact.id} id={contact.id} contactsState={contactsState}/>
         ))}
       </ul>
     </div>
