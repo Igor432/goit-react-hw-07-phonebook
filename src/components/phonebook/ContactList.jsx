@@ -2,7 +2,7 @@ import ContactElement from './ContactElements';
 import style from '../phonebook/phonebook.module.css';
 import { useSelector } from 'react-redux';
 import { getFilter, getContacts } from '../redux/selectors';
-import { useEffect } from 'react';
+
 
 const ContactList = () => {
   const contactsState = useSelector(getContacts);
